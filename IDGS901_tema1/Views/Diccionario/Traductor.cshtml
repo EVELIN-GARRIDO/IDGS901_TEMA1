@@ -1,0 +1,47 @@
+﻿@model IDGS901_tema1.Models.Diccionario
+
+@{
+    ViewBag.Title = "Traductor";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+                    <h4>Traductor</h4>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Palabra, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Palabra, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            @Html.RadioButton("opc", "Palabra_esp") Español
+                        </div>
+                        <div class="form-group">
+                            @Html.RadioButton("opc", "Palabra_ing") Inglés
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 mt-3 mb-3 ms-md-5">
+                            <input type="submit" value="Traducir" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <a href="@Url.Action("GuardarPalabras", "Diccionario")" class="btn btn-primary ms-md-4">Agregar palabras</a>
+        </div>
+        <div class="col-lg-6">
+            <h4>Resultado </h4>
+            <h5>La traducción es: 
+                <span class="text-primary">@Model.Respuesta</span>
+            </h5>
+        </div>
+    </div>
+</div>
+

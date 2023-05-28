@@ -1,0 +1,89 @@
+﻿@model List<IDGS901_tema1.Models.Diccionario>
+
+@{
+    ViewBag.Title = "Guardar Palabras";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <h4>Diccionario</h4>
+                    <hr />
+
+                    <div class="form-group">
+                        <label class="control-label">Palabra en Español:</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Palabra_esp" value="" />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="control-label">Palabra en Inglés:</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Palabra_ing" value="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 mt-3 mb-3 ms-md-5">
+                            <input type="submit" value="Guardar" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <button id="mostrarTablaBtn" class="btn btn-primary ms-md-4 mb-3">Mostrar tabla</button>
+            <br />
+            <a href="@Url.Action("Traductor", "Diccionario")" class="btn btn-info ms-md-4">Ir al traductor</a>
+        </div>
+
+
+        <div class="col-6" id="tabla" style="display: none;">
+            <h4 class="text-center">Tabla de palabras guardadas</h4>
+            <hr />
+            <table class="table">
+                <tr>
+                    <th>
+                        Palabra en Español
+                    </th>
+                    <th>
+                        Palabra en Inglés
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Palabra_esp</td>
+                        <td>@item.Palabra_ing</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var mostrarTablaBtn = document.getElementById('mostrarTablaBtn');
+    var tabla = document.getElementById('tabla');
+    var visible = false;
+
+    mostrarTablaBtn.addEventListener('click', function () {
+        if (visible) {
+            tabla.style.display = 'none';
+            visible = false;
+            mostrarTablaBtn.textContent = 'Mostrar tabla';
+        } else {
+            tabla.style.display = 'table';
+            visible = true;
+            mostrarTablaBtn.textContent = 'Ocultar tabla';
+        }
+    });
+</script>

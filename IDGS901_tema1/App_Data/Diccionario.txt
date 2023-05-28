@@ -1,0 +1,8 @@
+flor, flower, 
+rojo, red, 
+azul, blue, 
+blanco, white, 
+negro, black, 
+silla, chair, 
+oso, bear, 
+pelota, ball, 

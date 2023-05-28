@@ -1,0 +1,59 @@
+﻿@model IDGS901_tema1.Models.Triangulo
+
+@{
+    ViewBag.Title = "Verificar Triangulo";
+}
+
+<h2>Verificar Triangulo</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">Punto A:</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.x1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBoxFor(model => model.y1, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="control-label">Punto B:</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.x2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBoxFor(model => model.y2, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="control-label">Punto C:</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.x3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBoxFor(model => model.y3, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 mt-3 text-center">
+                            <input type="submit" value="Verificar" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-6">
+            <h4>Resultados</h4>
+            <h5>@Model.verificacion</h5>
+            <h5>@Model.triangulo</h5>
+            <h5>@Model.resultado_perimetro</h5>
+            <h5>@Model.resultado_area</h5>
+        </div>
+    </div>
+</div>

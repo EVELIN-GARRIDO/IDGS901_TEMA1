@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Informacion</h2>
+<h2>@ViewBag.Grupo</h2>
+<h1>@ViewData["Materia"]</h1>
+
+<h3>--------------------</h3>
+<h1>@ViewBag.Nombre</h1>
+
+@Html.ActionLink("Mi ruta", "About2", null, null, new {dato = "valor", @class = "btn btn-danger"})
